@@ -145,11 +145,3 @@ E-Mail          █░░░░░░░░░░░░░░░░░░░  1,
 2. Zeitpläne anpassen
 3. Team weiterentwickeln
 
----
-
-## Slide 12: Fragen & Diskussion ❓
-
-### Kontakt
-- E-Mail: support@kundenservice.de
-- Telefon: +49 123 456789
-- Intranet: kundenservice.intern

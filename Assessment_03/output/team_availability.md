@@ -25,33 +25,37 @@ Total required: 24.5 agents for smooth operations
 ### Key Findings
 ![Daily Availability](daily_availability.png)
 
-- Average daily availability: 2.0 agents
-- Maximum availability: 4 agents
-- Minimum availability: 0 agents
-- Consistent staffing gaps in Service Line 3
+- Total number of agents: 29
+- Average daily available agents: 24.03
+- Maximum available agents: 29.00
+- Minimum available agents: 0.00
+- Days meeting requirements (24.5 agents): 16 days
+- Days below requirements: 8 days
 
 ---
 
-## Slide 4: Weekly Patterns 📅
-
-### Weekly Availability Analysis
-![Weekly Pattern](weekly_pattern.png)
-
-- Highest availability: Friday (2.2 agents)
-- Lowest availability: Wednesday (1.8 agents)
-- Weekend coverage requires attention
-- Mid-week peaks in attendance
-
----
-
-## Slide 5: Staffing Gaps Analysis ⚠️
+## Slide 4: Staffing Gaps Analysis ⚠️
 
 ### Service Line Gaps
 ![Staffing Gaps](staffing_gaps.png)
 
-- Service Line 1: Generally manageable
-- Service Line 2: Occasional shortages
-- Service Line 3: Significant understaffing
+Key Observations:
+- Most days (16 out of 24) meet the minimum staffing requirements
+- Average staffing level is close to the requirement (24.03 vs 24.5)
+- Staffing gaps occur on specific days due to:
+  - Sick leave
+  - Planned leave
+  - Partial availability (0.5, 0.8125, 0.875 FTE)
+
+---
+
+## Slide 5: Recommendations ✨
+
+### Action Items
+1. Implement better leave management to prevent understaffing
+2. Consider additional backup staff for high-absence days
+3. Review partial availability patterns to optimize scheduling
+4. Develop contingency plans for days with known staffing gaps
 
 ---
 
@@ -75,17 +79,7 @@ Total required: 24.5 agents for smooth operations
 
 ---
 
-## Slide 8: Recommendations ✨
-
-### Immediate Actions Needed
-1. Prioritize recruitment to meet Service Line 3 requirements
-2. Implement temporary staff augmentation for critical coverage
-3. Review and optimize leave management
-4. Develop flexible scheduling to maximize coverage during peak times
-
----
-
-## Slide 9: Next Steps 🎯
+## Slide 8: Next Steps 🎯
 
 ### Action Plan
 1. Short-term: Optimize current staff distribution
