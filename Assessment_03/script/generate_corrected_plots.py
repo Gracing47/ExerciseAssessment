@@ -45,7 +45,7 @@ try:
     plt.xticks(range(len(dates)), [d.strftime('%d-%b') for d in dates], rotation=45)
     
     plt.tight_layout()
-    plt.savefig('/Users/tommygrace/Downloads/Assesment/Assessment_03/output/daily_availability.png', dpi=300, bbox_inches='tight')
+    plt.savefig('/Users/tommygrace/Downloads/Assesment/Assessment_03/output/daily_availability_new.png', dpi=300, bbox_inches='tight')
     plt.close()
 
     # Plot staffing gaps
@@ -64,7 +64,7 @@ try:
     plt.xticks(range(len(dates)), [d.strftime('%d-%b') for d in dates], rotation=45)
     
     plt.tight_layout()
-    plt.savefig('/Users/tommygrace/Downloads/Assesment/Assessment_03/output/staffing_gaps.png', dpi=300, bbox_inches='tight')
+    plt.savefig('/Users/tommygrace/Downloads/Assesment/Assessment_03/output/staffing_gaps_new.png', dpi=300, bbox_inches='tight')
     plt.close()
 
 except Exception as e:
