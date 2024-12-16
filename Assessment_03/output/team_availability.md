@@ -1,91 +1,99 @@
-# Team Availability Analysis 📊
+# Team Availability Analysis - August 2022
 
 ---
 
-## Slide 1: Title 🎯
-
-### Team Availability Analysis
-#### August 2022 Overview
+## Overview
+Analysis of team availability for August 2022, focusing on meeting the minimum requirement of 24.5 agents per working day (Monday-Friday).
 
 ---
 
-## Slide 2: Service Line Requirements 📋
-
-### Minimum Staffing Requirements:
+## Service Line Requirements
 - Service Line 1: 2.5 agents
-- Service Line 2: 4 agents
-- Service Line 3: 18 agents
-
-Total required: 24.5 agents for smooth operations
-
----
-
-## Slide 3: Daily Availability Overview 📈
-
-### Key Findings
-![Daily Availability](daily_availability.png)
-
-- Total number of agents: 29
-- Average daily available agents: 24.03
-- Maximum available agents: 29.00
-- Minimum available agents: 0.00
-- Days meeting requirements (24.5 agents): 16 days
-- Days below requirements: 8 days
+- Service Line 2: 4.0 agents
+- Service Line 3: 18.0 agents
+**Total Required**: 24.5 agents
 
 ---
 
-## Slide 4: Staffing Gaps Analysis ⚠️
-
-### Service Line Gaps
-![Staffing Gaps](staffing_gaps.png)
-
-Key Observations:
-- Most days (16 out of 24) meet the minimum staffing requirements
-- Average staffing level is close to the requirement (24.03 vs 24.5)
-- Staffing gaps occur on specific days due to:
-  - Sick leave
-  - Planned leave
-  - Partial availability (0.5, 0.8125, 0.875 FTE)
+## Key Statistics
+- **Total Agents**: 30
+- **Working Days**: 23 weekdays (Monday-Friday only)
+- **Average Daily Available Agents**: 25.08
+- **Maximum Available**: 29.00 agents
+- **Minimum Available**: 21.00 agents
+- **Days Meeting Requirements**: 16 days (≥24.5 agents)
+- **Days Below Requirements**: 7 days (<24.5 agents)
 
 ---
 
-## Slide 5: Recommendations ✨
+## Staffing Analysis
+1. **Coverage Rate**:
+   - 69.6% of weekdays met the minimum requirement (16 out of 23 days)
+   - 30.4% of weekdays fell below the requirement (7 out of 23 days)
 
-### Action Items
-1. Implement better leave management to prevent understaffing
-2. Consider additional backup staff for high-absence days
-3. Review partial availability patterns to optimize scheduling
-4. Develop contingency plans for days with known staffing gaps
-
----
-
-## Slide 6: Monthly Statistics 📊
-
-### August 2022 Overview
-- Total working days: 31
-- Days meeting requirements: 0 (0%)
-- Days below requirements: 31 (100%)
-- Average daily shortage: 22.5 agents
+2. **Staffing Buffer**:
+   - Average surplus of 0.58 agents above requirement (25.08 - 24.5)
+   - Maximum surplus of 4.5 agents (29.00 - 24.5)
+   - Maximum deficit of 3.5 agents (24.5 - 21.00)
 
 ---
 
-## Slide 7: Critical Findings 🔍
-
-### Key Issues Identified
-- Consistent understaffing in Service Line 3
-- Friday staffing levels particularly concerning
-- Weekend coverage gaps
-- No days meet minimum requirements
+## Working Pattern
+- Operations run Monday through Friday only
+- No weekend operations
+- All dates follow standard business week pattern (23 working days in August 2022)
 
 ---
 
-## Slide 8: Next Steps 🎯
+## Critical Issues
+1. **Staffing Gaps**:
+   - Highest number of gaps occur in the third week of August
+   - Friday staffing levels show consistent shortages
+   - 7 days (30.4%) fall below minimum requirements
 
-### Action Plan
-1. Short-term: Optimize current staff distribution
-2. Medium-term: Recruit additional staff
-3. Long-term: Implement workforce management system
-4. Regular monitoring and adjustment
+2. **Resource Management**:
+   - Uneven distribution of leave days
+   - Limited buffer for unexpected absences
+   - Peak vacation period impacts (August)
 
 ---
-*Analysis generated on December 16, 2024*
+
+## Recommendations
+1. **Leave Management**:
+   - Implement structured leave approval process
+   - Stagger vacation schedules to maintain coverage
+   - Set maximum concurrent leave limits
+
+2. **Staffing Adjustments**:
+   - Add 1-2 additional agents for better coverage
+   - Develop flexible staffing model
+   - Cross-train agents across service lines
+
+3. **Monitoring System**:
+   - Implement daily availability tracking
+   - Set up alerts for projected shortages
+   - Regular staffing pattern analysis
+
+---
+
+## Action Plan
+1. **Immediate** (1-2 weeks):
+   - Review and optimize current staff distribution
+   - Implement leave request coordination
+
+2. **Short-term** (1-3 months):
+   - Begin recruitment for additional staff
+   - Develop cross-training program
+
+3. **Long-term** (3-6 months):
+   - Implement workforce management system
+   - Establish regular monitoring and adjustment process
+
+---
+
+## Visualizations
+- Daily availability trends: `daily_availability.png`
+- Staffing gaps analysis: `staffing_gaps.png`
+
+---
+*Analysis last updated: December 16, 2024*

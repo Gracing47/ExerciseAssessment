@@ -1,135 +1,201 @@
 from pptx import Presentation
 from pptx.util import Inches, Pt
-from pptx.dml.color import RGBColor
-from pptx.enum.text import PP_ALIGN
+from datetime import datetime
 import os
 
-def create_title_slide(prs, title, subtitle):
-    slide = prs.slides.add_slide(prs.slide_layouts[0])
-    title_shape = slide.shapes.title
-    subtitle_shape = slide.placeholders[1]
+def create_title_slide(prs):
+    title_slide = prs.slides.add_slide(prs.slide_layouts[0])
+    title = title_slide.shapes.title
+    subtitle = title_slide.placeholders[1]
     
-    title_shape.text = title
-    subtitle_shape.text = subtitle
-    
-    # Formatting
-    title_shape.text_frame.paragraphs[0].font.size = Pt(44)
-    title_shape.text_frame.paragraphs[0].font.bold = True
-    subtitle_shape.text_frame.paragraphs[0].font.size = Pt(24)
-    
-    return slide
+    title.text = "Team Availability Analysis"
+    subtitle.text = "August 2022\nAnalysis of staffing requirements and recommendations"
 
-def create_content_slide(prs, title, content_list):
+def create_requirements_slide(prs):
     slide = prs.slides.add_slide(prs.slide_layouts[1])
-    shapes = slide.shapes
+    title = slide.shapes.title
+    body = slide.placeholders[1]
     
-    title_shape = shapes.title
-    body_shape = shapes.placeholders[1]
+    title.text = "Service Line Requirements"
+    tf = body.text_frame
+    tf.text = "Minimum Staffing Requirements:"
     
-    title_shape.text = title
-    
-    tf = body_shape.text_frame
-    
-    for idx, item in enumerate(content_list):
-        if idx == 0:
-            p = tf.paragraphs[0]
-        else:
-            p = tf.add_paragraph()
-        p.text = item
-        p.level = 0
-        p.font.size = Pt(18)
-    
-    return slide
+    p = tf.add_paragraph()
+    p.text = "• Service Line 1: 2.5 agents"
+    p = tf.add_paragraph()
+    p.text = "• Service Line 2: 4.0 agents"
+    p = tf.add_paragraph()
+    p.text = "• Service Line 3: 18.0 agents"
+    p = tf.add_paragraph()
+    p.text = "\nTotal Required: 24.5 agents"
 
-def add_image_slide(prs, title, image_path, subtitle=None):
-    slide = prs.slides.add_slide(prs.slide_layouts[5])
-    shapes = slide.shapes
+def create_statistics_slide(prs):
+    slide = prs.slides.add_slide(prs.slide_layouts[1])
+    title = slide.shapes.title
+    body = slide.placeholders[1]
     
-    title_shape = shapes.title
-    title_shape.text = title
-    title_shape.text_frame.paragraphs[0].font.size = Pt(32)
+    title.text = "Key Statistics"
+    tf = body.text_frame
     
-    # Add image
-    if os.path.exists(image_path):
-        left = Inches(1)
-        top = Inches(1.5)
-        width = Inches(8)
-        height = Inches(5)
-        slide.shapes.add_picture(image_path, left, top, width, height)
+    stats = [
+        "Total Agents: 30",
+        "Working Days: 23 weekdays (Monday-Friday only)",
+        "Average Daily Available Agents: 25.08",
+        "Maximum Available: 29.00 agents",
+        "Minimum Available: 21.00 agents",
+        "Days Meeting Requirements: 16 days (≥24.5 agents)",
+        "Days Below Requirements: 7 days (<24.5 agents)"
+    ]
     
-    # Add subtitle if provided
-    if subtitle:
-        left = Inches(1)
-        top = Inches(6.5)
-        width = Inches(8)
-        height = Inches(1)
-        txBox = slide.shapes.add_textbox(left, top, width, height)
-        tf = txBox.text_frame
-        p = tf.add_paragraph()
-        p.text = subtitle
-        p.font.size = Pt(14)
-        p.alignment = PP_ALIGN.CENTER
+    for i, stat in enumerate(stats):
+        p = tf.add_paragraph() if i > 0 else tf.paragraphs[0]
+        p.text = f"• {stat}"
+
+def create_analysis_slide(prs):
+    slide = prs.slides.add_slide(prs.slide_layouts[1])
+    title = slide.shapes.title
+    body = slide.placeholders[1]
     
-    return slide
+    title.text = "Staffing Analysis"
+    tf = body.text_frame
+    
+    p = tf.paragraphs[0]
+    p.text = "Coverage Rate:"
+    p = tf.add_paragraph()
+    p.text = "• 69.6% of weekdays met minimum requirement"
+    p = tf.add_paragraph()
+    p.text = "• 30.4% of weekdays fell below requirement"
+    
+    p = tf.add_paragraph()
+    p.text = "\nStaffing Buffer:"
+    p = tf.add_paragraph()
+    p.text = "• Average surplus: 0.58 agents"
+    p = tf.add_paragraph()
+    p.text = "• Maximum surplus: 4.5 agents"
+    p = tf.add_paragraph()
+    p.text = "• Maximum deficit: 3.5 agents"
+
+def create_critical_issues_slide(prs):
+    slide = prs.slides.add_slide(prs.slide_layouts[1])
+    title = slide.shapes.title
+    body = slide.placeholders[1]
+    
+    title.text = "Critical Issues"
+    tf = body.text_frame
+    
+    issues = [
+        ("Staffing Gaps:", [
+            "Highest gaps in third week of August",
+            "Friday staffing levels show shortages",
+            "7 days (30.4%) below requirements"
+        ]),
+        ("Resource Management:", [
+            "Uneven distribution of leave days",
+            "Limited buffer for unexpected absences",
+            "Peak vacation period impacts"
+        ])
+    ]
+    
+    for i, (header, points) in enumerate(issues):
+        p = tf.add_paragraph() if i > 0 else tf.paragraphs[0]
+        p.text = header
+        for point in points:
+            p = tf.add_paragraph()
+            p.text = f"• {point}"
+
+def create_recommendations_slide(prs):
+    slide = prs.slides.add_slide(prs.slide_layouts[1])
+    title = slide.shapes.title
+    body = slide.placeholders[1]
+    
+    title.text = "Recommendations"
+    tf = body.text_frame
+    
+    recommendations = [
+        ("Leave Management:", [
+            "Implement structured approval process",
+            "Stagger vacation schedules",
+            "Set concurrent leave limits"
+        ]),
+        ("Staffing Adjustments:", [
+            "Add 1-2 additional agents",
+            "Develop flexible staffing model",
+            "Cross-train across service lines"
+        ]),
+        ("Monitoring System:", [
+            "Implement daily tracking",
+            "Set up shortage alerts",
+            "Regular pattern analysis"
+        ])
+    ]
+    
+    for i, (header, points) in enumerate(recommendations):
+        p = tf.add_paragraph() if i > 0 else tf.paragraphs[0]
+        p.text = header
+        for point in points:
+            p = tf.add_paragraph()
+            p.text = f"• {point}"
+
+def create_action_plan_slide(prs):
+    slide = prs.slides.add_slide(prs.slide_layouts[1])
+    title = slide.shapes.title
+    body = slide.placeholders[1]
+    
+    title.text = "Action Plan"
+    tf = body.text_frame
+    
+    actions = [
+        ("Immediate (1-2 weeks):", [
+            "Review and optimize staff distribution",
+            "Implement leave request coordination"
+        ]),
+        ("Short-term (1-3 months):", [
+            "Begin recruitment for additional staff",
+            "Develop cross-training program"
+        ]),
+        ("Long-term (3-6 months):", [
+            "Implement workforce management system",
+            "Establish monitoring process"
+        ])
+    ]
+    
+    for i, (header, points) in enumerate(actions):
+        p = tf.add_paragraph() if i > 0 else tf.paragraphs[0]
+        p.text = header
+        for point in points:
+            p = tf.add_paragraph()
+            p.text = f"• {point}"
+
+def create_visualization_slide(prs):
+    slide = prs.slides.add_slide(prs.slide_layouts[1])
+    title = slide.shapes.title
+    
+    title.text = "Availability Analysis"
+    
+    # Add daily availability chart
+    img_path = os.path.join('..', 'output', 'daily_availability.png')
+    if os.path.exists(img_path):
+        slide.shapes.add_picture(img_path, Inches(1), Inches(2), width=Inches(8))
 
 def create_presentation():
     prs = Presentation()
     
-    # Title slide
-    create_title_slide(prs, 
-                      "Team Availability Analysis",
-                      "August 2022 Overview")
+    # Create slides
+    create_title_slide(prs)
+    create_requirements_slide(prs)
+    create_statistics_slide(prs)
+    create_analysis_slide(prs)
+    create_critical_issues_slide(prs)
+    create_recommendations_slide(prs)
+    create_action_plan_slide(prs)
+    create_visualization_slide(prs)
     
-    # Service Line Requirements slide
-    requirements = [
-        "Service Line Requirements:",
-        "• Service Line 1: 2.5 agents",
-        "• Service Line 2: 4 agents",
-        "• Service Line 3: 18 agents",
-        "",
-        "Total required: 24.5 agents for smooth operations"
-    ]
-    create_content_slide(prs, "Service Line Requirements", requirements)
-    
-    # Daily Availability slide
-    daily_stats = [
-        "Key Statistics:",
-        "• Total number of agents: 29",
-        "• Average daily available agents: 24.03",
-        "• Maximum available agents: 29.00",
-        "• Days meeting requirements: 16 days",
-        "• Days below requirements: 8 days"
-    ]
-    create_content_slide(prs, "Daily Availability Overview", daily_stats)
-    
-    # Daily Availability Chart
-    add_image_slide(prs, 
-                   "Daily Team Availability", 
-                   "../output/daily_availability.png",
-                   "Daily availability trend showing actual vs required staffing levels")
-    
-    # Staffing Gaps Chart
-    add_image_slide(prs, 
-                   "Staffing Gaps Analysis", 
-                   "../output/staffing_gaps.png",
-                   "Red bars indicate understaffing, green bars indicate surplus staffing")
-    
-    # Recommendations slide
-    recommendations = [
-        "Action Items:",
-        "• Implement better leave management to prevent understaffing",
-        "• Consider additional backup staff for high-absence days",
-        "• Review partial availability patterns to optimize scheduling",
-        "• Develop contingency plans for days with known staffing gaps"
-    ]
-    create_content_slide(prs, "Recommendations", recommendations)
-    
-    # Save the presentation
-    output_dir = "../output/Presentation"
+    # Save presentation
+    output_dir = os.path.join('..', 'output', 'Presentation')
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
     
-    prs.save(os.path.join(output_dir, "team_availability_analysis.pptx"))
+    prs.save(os.path.join(output_dir, 'team_availability_analysis.pptx'))
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     create_presentation()
